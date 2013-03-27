@@ -23,14 +23,14 @@ class Spree::Wholesaler < ActiveRecord::Base
 
   def activate!
     get_wholesale_role
-    return false if user.roles.include?(@role)
+    return false if user.spree_roles.include?(@role)
     user.roles << @role
     user.save
   end
 
   def deactivate!
     get_wholesale_role
-    return false unless user.roles.include?(@role)
+    return false unless user.spree_roles.include?(@role)
     user.roles.delete(@role)
     user.save
   end
