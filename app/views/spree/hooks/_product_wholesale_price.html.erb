@@ -1,9 +1,7 @@
-<% if current_user && current_user.has_spree_role?(:wholesaler) %>
-  <% if @product.try(:wholesale_price) && 0 < @product.try(:wholesale_price) %>
+<% if current_user && current_user.has_spree_role?(:wholesaler) && @product.try(:wholesale_price) && 0 < @product.try(:wholesale_price)%>
     <h6 class="product-section-title"><%= t(:wholesale_price) %></h6>
     <div><span class="price wholesale"><%= number_to_currency(@product.wholesale_price) %></span></div>
-  <% else %>
+<% else %>
   	<h6 class="product-section-title"><%= t(:price) %></h6>
   	<div><span class="price selling" itemprop="price"><%= @product.price_in(current_currency).display_price %></span></div>
-  <% end %>
 <% end %>
