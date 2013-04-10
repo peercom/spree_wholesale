@@ -47,7 +47,7 @@
       <%= form.label :web_address %><br/>
       <%= form.text_field :web_address %>
     </p>
-    <p>
+    <p style="display: none;">
       <%= form.label :terms %><br/>
       <%= form.select :terms, Spree::Wholesaler.term_options, :class => 'required' %><span class="req">*</span>
     </p>
